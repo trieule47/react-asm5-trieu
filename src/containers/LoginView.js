@@ -35,6 +35,7 @@ export default function LoginView() {
                 <h3>Username</h3><input type="text" onChange={(e) => handleUsernameChange(e)} />
                 <h3>Password</h3><input type="text" onChange={(e) => handlePassChange(e)} />
                 <h3><input type='submit' value='Login' onClick={() => handleLogin()} /></h3>
+                <h3><input type='submit' value='Sign up' onClick={() => navigate('/signup')} /></h3>
             </div>
         </div>
     )

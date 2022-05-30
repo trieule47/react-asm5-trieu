@@ -9,15 +9,15 @@ export default function SignUp() {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [data, setData] = useState("");
-  const [userList, setUserList] = useState([{ username: 'admin', pass: 'admin' }]);
+  const [listUsers, setlistUsers] = useState([{ username: 'admin', pass: 'admin' }]);
   const navigate = useNavigate();
   // const onSubmit = data => console.log(data);
 
   const handleAccoutAdd = (user) => {
     setData(JSON.stringify(user));
     console.log(data);
-    setUserList([...userList, data]);
-    localStorage.setItem('users', JSON.stringify(userList));
+    setlistUsers([...listUsers, data]);
+    localStorage.setItem('users', JSON.stringify(listUsers));
     navigate('/');
   }
 
@@ -35,10 +35,10 @@ export default function SignUp() {
             <p>Password Minimum 3 characters and maximum 15 characters, at least one lowercase letter, one number</p>
           )}
           <br></br>
-          <input type="submit" />
+          <input type="submit" value="Sign up"/>
         </form>
         <p>{data}</p>
-        <input onClick={() => navigate('/')} type="submit" value="login" />
+        <input onClick={() => navigate('/')} type="submit" value="Login" />
       </div>
     </div>
   )
