@@ -9,18 +9,15 @@ export default function SignUp() {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [data, setData] = useState("");
-  const [lists, setLists] = useState([]);
+  const [userList, setUserList] = useState([{ username: 'admin', pass: 'admin' }]);
   const navigate = useNavigate();
-  const onSubmit = data => console.log(data);
+  // const onSubmit = data => console.log(data);
 
-  const handleAccoutAdd = (data) => {
-    setData(JSON.stringify(data));
+  const handleAccoutAdd = (user) => {
+    setData(JSON.stringify(user));
     console.log(data);
-    setLists([...lists, data]);
-    console.log(lists);
-    localStorage.setItem('users',JSON.parse(lists));
-    const List = JSON.parse(localStorage.getItem('users'));
-    console.log(List);
+    setUserList([...userList, data]);
+    localStorage.setItem('users', JSON.stringify(userList));
     navigate('/');
   }
 
@@ -41,7 +38,7 @@ export default function SignUp() {
           <input type="submit" />
         </form>
         <p>{data}</p>
-        <input onClick={()=> navigate('/')} type="submit" value="login" />
+        <input onClick={() => navigate('/')} type="submit" value="login" />
       </div>
     </div>
   )

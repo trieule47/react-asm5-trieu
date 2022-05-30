@@ -22,7 +22,6 @@ export default function LoginView() {
 
     const handleLogin = () => {
         getUsers();
-        console.log('handle login :' + username + 'da');
         if (username === 'admin' && pass === 'admin') {
             localStorage.setItem('user', '1');
             navigate('/');
